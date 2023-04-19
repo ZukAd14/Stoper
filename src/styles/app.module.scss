@@ -1,4 +1,4 @@
-@import '../../styles/settings.scss';
+@import './settings.scss';
 
 .button {
     background: $color-success;
@@ -17,4 +17,10 @@
     &:hover {
         background: darken($color-success, 5%);
     }
+}
+
+.container {
+    text-align: center;
+    margin-top: 15%;
+    font-size: 36px;
 }

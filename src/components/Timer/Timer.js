@@ -4,11 +4,12 @@ import styles from './Timer.module.scss';
 
 
 
-    const Timer = ({ time }) => {
-        const formatTime = milliseconds => {
-            const seconds = Math.floor((milliseconds / 1000) % 60);
-            const minutes = Math.floor((milliseconds / 1000 / 60) % 60);
-            const hours = Math.floor((milliseconds / 1000 / 60 / 60) % 24);
+    const Timer = ({ times }) => {
+        const formatTime = () => {
+            const milliseconds = times % 100;
+            const seconds = Math.floor((times % 6000) / 100);
+            const minutes = Math.floor((times % 360000) / 6000);
+            const hours = Math.floor(times / 360000);
 
             return [
                 hours.toString().padStart(2, "0"),
@@ -20,8 +21,8 @@ import styles from './Timer.module.scss';
         };
 
         return (
-            <div >
-                {formatTime(time)}
+            <div className={styles.timer}>
+                {formatTime(times)}
             </div>
         );
     };
